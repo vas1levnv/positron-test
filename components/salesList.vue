@@ -19,12 +19,12 @@ const store = useWebsiteStore()
 		</div>
 		<div>
 			<div>
-				<div>Сумма</div>
-				<div></div>
+				<div>Сумма заказа</div>
+				<div>{{store.priceAllItems}}</div>
 			</div>
 			<div>
 				<div>Количество</div>
-				<div></div>
+				<div>{{store.countAllItems}} шт</div>
 			</div>
 		</div>
 	</div>

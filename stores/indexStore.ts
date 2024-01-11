@@ -8,7 +8,6 @@ interface SalesItem {
 	img: string,
 	count: number,
 	price: number,
-	fullPrice: number,
 }
 
 interface State {
@@ -33,7 +32,7 @@ export const useWebsiteStore = defineStore('websiteStore', {
 			},
 			{
 				id: 2,
-				name: 'Вытяжное устройство G2H',
+				name: 'Вытяжное устройство BXC',
 				description: '12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия',
 				article: 'G2H1065',
 				img: 'G2H1065',
@@ -42,7 +41,7 @@ export const useWebsiteStore = defineStore('websiteStore', {
 			},
 			{
 				id: 3,
-				name: 'Вытяжное устройство G2H',
+				name: 'Вытяжное устройство GHN',
 				description: '12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия',
 				article: 'G2H1065',
 				img: 'G2H1065',
@@ -51,7 +50,6 @@ export const useWebsiteStore = defineStore('websiteStore', {
 			},
 
 		],
-		fullPrice: 0
 	}),
 	actions: {
 		incrementSalesItemCount(id: number) {
@@ -74,5 +72,12 @@ export const useWebsiteStore = defineStore('websiteStore', {
 			this.salesList = this.salesList.filter(el => el.id !== id)
 		}
 	},
-	getters: {}
+	getters: {
+		countAllItems: (state: State) => {
+			return state.salesList.reduce((n, {count}) => n + count, 0)
+		},
+		priceAllItems: (state: State) => {
+			return state.salesList.reduce((acc, item) => acc + (item.count * item.price), 0)
+		}
+	}
 })
