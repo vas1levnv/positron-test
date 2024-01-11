@@ -1,13 +1,18 @@
 <script setup lang="ts">
 import {useWebsiteStore} from "~/stores/indexStore";
+import noPhoto from '~/assets/img/no-photo.png'
 
 const store = useWebsiteStore()
+
+
+
 </script>
 
 <template>
 	<div class="sales-list">
 		<div v-for="item in store.salesList" :key="item.id">
 			<div>{{ item.name }}</div>
+			<img :src="noPhoto" alt="no-photo">
 			<div>{{ item.description }}</div>
 			<div>{{ item.img }}</div>
 			<div>{{ item.article }}</div>
