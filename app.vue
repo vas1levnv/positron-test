@@ -1,6 +1,10 @@
 <template>
 	<NuxtPage/>
 </template>
-<script>
-export default {};
-</script>
+<style>
+button {
+	background: none;
+	border: none;
+	outline: none;
+}
+</style>
