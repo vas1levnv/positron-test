@@ -69,6 +69,9 @@ export const useWebsiteStore = defineStore('websiteStore', {
 					break;
 				}
 			}
+		},
+		deleteSalesItem(id: number) {
+			this.salesList = this.salesList.filter(el => el.id !== id)
 		}
 	},
 	getters: {}

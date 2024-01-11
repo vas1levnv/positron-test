@@ -7,7 +7,6 @@ const store = useWebsiteStore()
 <template>
 	<div class="sales-list">
 		<div v-for="item in store.salesList" :key="item.id">
-			<div>{{ item.id }}</div>
 			<div>{{ item.name }}</div>
 			<div>{{ item.description }}</div>
 			<div>{{ item.img }}</div>
@@ -16,8 +15,18 @@ const store = useWebsiteStore()
 			<div>{{ item.count }}</div>
 			<button @click="store.incrementSalesItemCount(item.id)">+</button>
 			<div>{{ item.price * item.count }}</div>
+			<button @click="store.deleteSalesItem(item.id)">Удалить</button>
 		</div>
-	
+		<div>
+			<div>
+				<div>Сумма</div>
+				<div></div>
+			</div>
+			<div>
+				<div>Количество</div>
+				<div></div>
+			</div>
+		</div>
 	</div>
 </template>
 
