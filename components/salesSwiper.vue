@@ -16,8 +16,8 @@
 					<img :src="noPhotoSwiper" alt="noPhotoSwiper">
 				</div>
 				<div class="sales-swiper-item__text">
-					<div>{{ item.name }}</div>
-					<div>{{ item.description }}</div>
+					<div style="font-weight: 700;font-size: 1.325rem">{{ item.name }}</div>
+					<div style="font-size: .875rem; margin-top: 0.5rem">{{ item.description }}</div>
 				</div>
 				<div style="font-weight: 700; font-size: 1.5rem">{{ item.priceRu.first }} ₽ - {{ item.priceRu.second }}
 					₽
