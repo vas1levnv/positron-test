@@ -1,12 +1,24 @@
 <template>
+	<header>
+
+	</header>
 	<NuxtPage/>
+	<footer>
+
+	</footer>
 </template>
 <style>
 @import "./assets/main.scss";
 
-button {
-	background: none;
-	border: none;
-	outline: none;
+header {
+	height: 50px;
 }
+
+footer {
+	height: 50px	;
+}
+
 </style>
+<script setup lang="ts">
+
+</script>

@@ -53,59 +53,116 @@ export const useWebsiteStore = defineStore('websiteStore', {
 		salesSwiper: [
 			{
 				id: 1,
-				name: 'Вытяжное устройство G2H',
-				description: '12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия',
-				article: 'G2H1065',
-				img: 'G2H1065',
-				count: 1,
-				price: 12644,
+				name: 'BXC',
+				description: 'Вытяжное устройство для механической системы вентиляции',
+				priceRu: {
+					first: 6848,
+					second: 56584,
+				},
+				priceEu: {
+					first: 77.60,
+					second: 643.86,
+				},
+				link: "#"
 			},
 			{
 				id: 2,
-				name: 'Вытяжное устройство BXC',
-				description: '12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия',
-				article: 'G2H1065',
-				img: 'G2H1065',
-				count: 2,
-				price: 12644,
+				name: 'G2H',
+				description: 'Многофункциональное вытяжное устройство для естественной и гибридной вентиляции',
+				priceRu: {
+					first: 6848,
+					second: 56584,
+				},
+				priceEu: {
+					first: 77.60,
+					second: 643.86,
+				},
+				link: "#"
 			},
 			{
 				id: 3,
-				name: 'Вытяжное устройство GHN',
-				description: '12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия',
-				article: 'G2H1065',
-				img: 'G2H1065',
-				count: 1,
-				price: 12644,
+				name: 'GHN',
+				description: 'Вытяжное устройство с датчиком присутствия',
+				priceRu: {
+					first: 6848,
+					second: 56584,
+				},
+				priceEu: {
+					first: 77.60,
+					second: 643.86,
+				},
+				link: "#"
 			},
 			{
 				id: 4,
-				name: 'Вытяжное устройство GHN',
-				description: '12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия',
-				article: 'G2H1065',
-				img: 'G2H1065',
-				count: 1,
-				price: 12644,
+				name: 'TDA',
+				description: 'Вытяжное устройство с датчиком присутствия',
+				priceRu: {
+					first: 6848,
+					second: 56584,
+				},
+				priceEu: {
+					first: 77.60,
+					second: 643.86,
+				},
+				link: "#"
 			},
 			{
 				id: 5,
-				name: 'Вытяжное устройство GHN',
-				description: '12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия',
-				article: 'G2H1065',
-				img: 'G2H1065',
-				count: 1,
-				price: 12644,
+				name: 'TDA',
+				description: 'Вытяжное устройство с датчиком присутствия',
+				priceRu: {
+					first: 6848,
+					second: 56584,
+				},
+				priceEu: {
+					first: 77.60,
+					second: 643.86,
+				},
+				link: "#"
 			},
 			{
 				id: 6,
-				name: 'Вытяжное устройство GHN',
-				description: '12-72/168 м3/ч / гидрорегулируемый расход / от датчика присутствия',
-				article: 'G2H1065',
-				img: 'G2H1065',
-				count: 1,
-				price: 12644,
+				name: 'TDA',
+				description: 'Вытяжное устройство с датчиком присутствия',
+				priceRu: {
+					first: 6848,
+					second: 56584,
+				},
+				priceEu: {
+					first: 77.60,
+					second: 643.86,
+				},
+				link: "#"
 			},
-
+			{
+				id: 7,
+				name: 'TDA',
+				description: 'Вытяжное устройство с датчиком присутствия',
+				priceRu: {
+					first: 6848,
+					second: 56584,
+				},
+				priceEu: {
+					first: 77.60,
+					second: 643.86,
+				},
+				link: "#"
+			},
+			{
+				id: 8,
+				name: 'TDA',
+				description: 'Вытяжное устройство с датчиком присутствия',
+				priceRu: {
+					first: 6848,
+					second: 56584,
+				},
+				priceEu: {
+					first: 77.60,
+					second: 643.86,
+				},
+				link: "#"
+			},
 		],
 	}),
 	actions: {
