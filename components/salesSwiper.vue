@@ -2,7 +2,8 @@
 	<div class="sales-swiper">
 		<h2 class="sales-swiper-title">Просмотренные товары</h2>
 		<swiper
-				:slides-per-view="4"
+				:slides-per-view="1"
+				:breakpoints="{ 600:{ slidesPerView:2 }, 900:{ slidesPerView:3, }, 1200:{ slidesPerView:4, } }"
 				:space-between="20"
 				:navigation="{
       prevEl: prev,
@@ -12,7 +13,7 @@
 				:pagination="{ clickable: true,type: 'fraction', el: pagination, }"
 		>
 			<swiper-slide class="sales-swiper-item" v-for="item in store.salesSwiper">
-				<div>
+				<div class="sales-swiper-item__img">
 					<img :src="noPhotoSwiper" alt="noPhotoSwiper">
 				</div>
 				<div class="sales-swiper-item__text">
@@ -88,6 +89,12 @@ const pagination = ref(null)
 		&__text {
 			flex: 1 1 0;
 			margin-bottom: 2.25rem;
+		}
+		
+		&__img{
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 	}
 	

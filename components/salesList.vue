@@ -16,10 +16,27 @@ const installation = computed({
 	}
 })
 
+const submit = (e:Event) => {
+	e.preventDefault()
+	fetch('https://jsonplaceholder.typicode.com/posts', {
+		method: 'POST',
+		body: JSON.stringify({
+			title: 'foo',
+			body: 'bar',
+			userId: 1,
+		}),
+		headers: {
+			'Content-type': 'application/json; charset=UTF-8',
+		},
+	})
+		.then((response) => response.json())
+		.then((json) => console.log(json));
+}
+
 </script>
 
 <template>
-	<div class="sales">
+	<form class="sales" @submit.prevent="submit">
 		<div>
 			<div class="sales-header">
 				<h1 class="sales-title">Ваша корзина</h1>
@@ -82,10 +99,10 @@ const installation = computed({
 					<div>{{ store.installation? Math.floor(store.priceAllItems * 1.2) : store.priceAllItems}}</div>
 				</div>
 			</div>
-			<custom-button class="primary">Оформить заказ</custom-button>
+			<custom-button type="submit" class="primary">Оформить заказ</custom-button>
 			<custom-button class="secondary">Купить в 1 клик</custom-button>
 		</div>
-	</div>
+	</form>
 </template>
 
 <style scoped lang="scss">
@@ -262,6 +279,10 @@ const installation = computed({
 		grid-template-columns: 1fr 425px;
 		gap: 3.5rem;
 		align-items: center;
+		
+		&-title{
+			font-size: 44px;
+		}
 	}
 }
 
