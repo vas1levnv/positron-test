@@ -4,8 +4,10 @@ import SalesSwiper from "~/components/SalesSwiper.vue";
 </script>
 
 <template>
-	<SalesList/>
-	<SalesSwiper/>
+	<div class="container">
+		<SalesList/>
+		<SalesSwiper/>
+	</div>
 </template>
 
 <style scoped>
