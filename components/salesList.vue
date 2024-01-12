@@ -3,8 +3,18 @@ import {useWebsiteStore} from "~/stores/indexStore";
 import noPhoto from '~/assets/img/no-photo.png'
 import IconClose from "~/components/icons/IconClose.vue";
 import CustomButton from "~/components/CustomButton.vue";
+import IconLabel from "~/components/icons/IconLabel.vue";
 
 const store = useWebsiteStore()
+
+const installation = computed({
+	get() {
+		return store.installation
+	},
+	set(value) {
+		store.changeInstallation(value)
+	}
+})
 
 </script>
 
@@ -33,6 +43,7 @@ const store = useWebsiteStore()
 						<div class="sales-item__counter-value">{{ item.count }}</div>
 						<button class="sales-item__counter-btn" @click="store.incrementSalesItemCount(item.id)">+
 						</button>
+						<div class="sales-item__counter-one" v-if="item.count > 1">{{ item.price }} ₽/шт. </div>
 					</div>
 					<div class="sales-item__price">{{ item.price * item.count }} ₽</div>
 					<button class="sales-item__close" @click="store.deleteSalesItem(item.id)">
@@ -40,6 +51,14 @@ const store = useWebsiteStore()
 					</button>
 				</div>
 			</div>
+			<label class="sales-list-label">
+				<input type="checkbox" :value="installation" v-model="installation">
+				<icon-label></icon-label>
+				<div>
+					<div style="font-weight: 700">Установка</div>
+					<div style="font-size: 0.875rem">Отметьте, если Вам необходима консультация профессионала по монтажу выбранных товаров.</div>
+				</div>
+			</label>
 		</div>
 		<div class="sales-total">
 			<div class="sales-total-title">
@@ -55,12 +74,12 @@ const store = useWebsiteStore()
 			</div>
 			<div class="sales-total-item">
 				<div>Установка</div>
-				<div>нет</div>
+				<div>{{store.installation ? 'да' : 'нет'}}</div>
 			</div>
 			<div class="sales-total__price">
 				<div>Стоимость товаров</div>
 				<div>
-					<div>{{ store.priceAllItems }}</div>
+					<div>{{ store.installation? Math.floor(store.priceAllItems * 1.2) : store.priceAllItems}}</div>
 				</div>
 			</div>
 			<custom-button class="primary">Оформить заказ</custom-button>
@@ -95,6 +114,16 @@ const store = useWebsiteStore()
 		display: flex;
 		flex-direction: column;
 		gap: 1.5rem;
+		
+		&-label{
+			display: flex;
+			align-items: center;
+			background: var(--shadow-color);
+			padding: 1.5rem;
+			gap: 1.25rem;
+			border-radius: 0.5rem;
+			margin-top: 1rem;
+		}
 	}
 	
 	&-item {
@@ -105,6 +134,10 @@ const store = useWebsiteStore()
 		position: relative;
 		border-bottom: 1px solid var(--border-color);
 		padding: 0 1rem 1.25rem;
+		
+		&:last-child{
+			border: none;
+		}
 		
 		&__img {
 			width: min-content;
@@ -133,6 +166,7 @@ const store = useWebsiteStore()
 			display: flex;
 			justify-content: center;
 			gap: 2px;
+			position: relative;
 			
 			&-btn, &-value {
 				width: 34px;
@@ -155,6 +189,15 @@ const store = useWebsiteStore()
 				&:last-child {
 					border-radius: 0 0.25rem 0.25rem 0;
 				}
+			}
+			
+			&-one{
+				position: absolute;
+				bottom: -1.25rem;
+				left: 50%;
+				transform: translateX(-50%);
+				white-space: nowrap;
+				font-size: 0.75rem;
 			}
 		}
 		

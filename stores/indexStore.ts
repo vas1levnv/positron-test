@@ -13,6 +13,7 @@ interface SalesItem {
 interface State {
 	name: string,
 	description: string,
+	installation: boolean,
 	salesList: Array<SalesItem>
 }
 
@@ -50,6 +51,7 @@ export const useWebsiteStore = defineStore('websiteStore', {
 			},
 
 		],
+		installation: false,
 		salesSwiper: [
 			{
 				id: 1,
@@ -184,7 +186,10 @@ export const useWebsiteStore = defineStore('websiteStore', {
 		},
 		deleteSalesItem(id: number) {
 			this.salesList = this.salesList.filter(el => el.id !== id)
-		}
+		},
+		changeInstallation(data:boolean){
+			this.installation = data
+		},
 	},
 	getters: {
 		countAllItems: (state: State) => {
