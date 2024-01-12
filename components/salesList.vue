@@ -16,8 +16,7 @@ const installation = computed({
 	}
 })
 
-const submit = (e:Event) => {
-	e.preventDefault()
+const handleSubmit = () => {
 	fetch('https://jsonplaceholder.typicode.com/posts', {
 		method: 'POST',
 		body: JSON.stringify({
@@ -36,12 +35,12 @@ const submit = (e:Event) => {
 </script>
 
 <template>
-	<form class="sales" @submit.prevent="submit">
+	<form class="sales" @submit.prevent="handleSubmit">
 		<div>
 			<div class="sales-header">
 				<h1 class="sales-title">Ваша корзина</h1>
 				<div class="sales-header__count">{{ store.countAllItems }} товара</div>
-				<button>Очистить корзину</button>
+				<button type="button">Очистить корзину</button>
 			</div>
 
 			<div class="sales-list">
@@ -55,10 +54,10 @@ const submit = (e:Event) => {
 						<div class="sales-item__text-article">{{ item.article }}</div>
 					</div>
 					<div class="sales-item__counter">
-						<button class="sales-item__counter-btn" @click="store.decrementSalesItemCount(item.id)">-
+						<button type="button" class="sales-item__counter-btn" @click="store.decrementSalesItemCount(item.id)">-
 						</button>
 						<div class="sales-item__counter-value">{{ item.count }}</div>
-						<button class="sales-item__counter-btn" @click="store.incrementSalesItemCount(item.id)">+
+						<button type="button" class="sales-item__counter-btn" @click="store.incrementSalesItemCount(item.id)">+
 						</button>
 						<div class="sales-item__counter-one" v-if="item.count > 1">{{ item.price }} ₽/шт. </div>
 					</div>
@@ -100,7 +99,7 @@ const submit = (e:Event) => {
 				</div>
 			</div>
 			<custom-button type="submit" class="primary">Оформить заказ</custom-button>
-			<custom-button class="secondary">Купить в 1 клик</custom-button>
+			<custom-button type="button" class="secondary">Купить в 1 клик</custom-button>
 		</div>
 	</form>
 </template>

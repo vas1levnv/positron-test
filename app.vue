@@ -15,7 +15,7 @@
 
 .header {
 	display: flex;
-	justify-content: end;
+	justify-content: flex-end;
 	padding: 1rem 0;
 }
 
